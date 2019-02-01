@@ -10,7 +10,7 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>ジェネレーター</h1>
+    <h1>平成最後のジェネレーター</h1>
     <h2>Wikipediaから適当なワードを拾ってきてつぶやきを生成します</h2>
     
     <form method="post">
@@ -22,7 +22,6 @@
     </form>
     <!-- ここがBootstrapのCDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- ここがBootstrapのCDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script>
       // 出力したテキストをツイート
@@ -32,8 +31,7 @@
       if (content !== "" && content.length <= 140) {
         encoded = encodeURIComponent(content);
         url = "https://twitter.com/intent/tweet?text=" + encoded;
-        url += " #平成最後のジェネレーター";
-        // url += "&url=http://yubais.net/tatetwi/";
+        url += "&hashtags=平成最後のジェネレーター";
         return window.open(url);
         }
       };
@@ -42,7 +40,6 @@
         $("#tweetButton").click(function(e) {
           e.preventDefault();
           return tweet();
-          console.log('tweet button!j')
         });
       });
 
