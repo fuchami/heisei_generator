@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>平成最後のジェネレーター</title>
+  <!-- BootstrapのCDN-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";; rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>ジェネレーター</h1>
+    <h2>Wikipediaから適当なワードを拾ってきてつぶやきを生成します</h2>
+    
+    <form method="post">
+      <div class="">
+        <textarea id="output" style="height:220px">{% if gen_tweet %}{{ gen_tweet }}{% endif%}</textarea>
+        <button type="submit" class="btn btn-primary">生成する</button>
+        <button id="tweetButton" class="btn btn-primary">ツイートする</button>
+      </div>
+    </form>
+    <!-- ここがBootstrapのCDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- ここがBootstrapのCDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script>
+      // 出力したテキストをツイート
+      tweet = function() {
+      var content, encoded, url;
+      content = $("#output").val();
+      if (content !== "" && content.length <= 140) {
+        encoded = encodeURIComponent(content);
+        url = "https://twitter.com/intent/tweet?text=" + encoded;
+        url += " #平成最後のジェネレーター";
+        // url += "&url=http://yubais.net/tatetwi/";
+        return window.open(url);
+        }
+      };
+      // イベント発火
+      $(document).ready(function() {
+        $("#tweetButton").click(function(e) {
+          e.preventDefault();
+          return tweet();
+          console.log('tweet button!j')
+        });
+      });
+
+    </script>
+</body>
+</html>
