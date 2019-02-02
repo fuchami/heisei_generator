@@ -13,6 +13,7 @@ def gen_tweet():
     html=urllib.request.urlopen(url)
 
     soup=BeautifulSoup(html, "html.parser")
+    # print(soup)
     title_tag = soup.title
     title = title_tag.string
     word = title.split(" ")
