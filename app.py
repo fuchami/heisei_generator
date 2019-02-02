@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request, logging, Response, redirect, flash
 import tw_generate
+import os
 
 # Flaskの起動 -インスタンス作成-
 app = Flask(__name__)
