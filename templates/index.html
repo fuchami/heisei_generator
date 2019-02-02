@@ -16,7 +16,7 @@
     <form method="post">
       <div class="">
         <textarea id="output" style="height:220px">{% if gen_tweet %}{{ gen_tweet }}{% endif%}</textarea>
-        <button type="submit" class="btn btn-primary">生成する</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="load" data-loading-text="生成中...">生成する</button>
         <button id="tweetButton" class="btn btn-primary">ツイートする</button>
       </div>
     </form>
@@ -41,6 +41,7 @@
           e.preventDefault();
           return tweet();
         });
+        $("#")
       });
 
     </script>
